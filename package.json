@@ -12,6 +12,7 @@
     "dev": "run-p *:watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
