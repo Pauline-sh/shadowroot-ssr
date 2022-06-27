@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "outDir": "dist"
+  },
+  "include": [
+    "./**/*",
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base",
+  "compilerOptions": {
+    "module": "esnext",
+    "outDir": "dist"
+  },
+  "include": [
+    "./**/*",
+    "../common/**/*",
+    "../types/**/*",
+  ]
+}
