@@ -2,9 +2,9 @@ import path from 'path';
 import express from 'express';
 import logger from 'morgan';
 import helmet from 'helmet';
-import {router} from './router/routes/index.js';
+import { router } from './router/routes/index.js';
 
-export const app = express();
+export const app: express.Express = express();
 
 app.use(logger('dev'));
 app.use(helmet());

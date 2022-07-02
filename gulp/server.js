@@ -1,36 +1,31 @@
-const {dest, watch} = require('gulp');
-const ts = require('gulp-typescript');
-const nodemon = require('gulp-nodemon');
+import gulp from 'gulp';
+import nodemon from 'gulp-nodemon';
+import child_process from 'child_process';
 
-const tsProject = ts.createProject('src/server/tsconfig.json');
+const { watch } = gulp;
 
-function buildServer() {
-  const tsResult = tsProject.src().pipe(tsProject());
-
-  return tsResult.js.pipe(dest('src/server/dist'));
+export function buildServer(cb) {
+  child_process.exec(
+    'tsc --project src/server/tsconfig.json',
+    function (err, stdout, stderr) {
+      console.log(stdout);
+      console.log(stderr);
+      cb(err);
+    });
 }
 
-function watchServer() {
+export function watchServer() {
   watch(['src/server/**/*.ts'], buildServer);
 }
 
-function restartOnChangeServer() {
+export function restartOnChangeServer() {
   nodemon({
     watch: ['src/server/dist'],
     script: 'src/server/dist/index.js'
   });
 }
 
-function devServer() {
+export function devServer() {
   watchServer(),
-  restartOnChangeServer();
+    restartOnChangeServer();
 }
-
-function devServer() {
-  watchServer(),
-  restartOnChangeServer();
-}
-
-exports.buildServer = buildServer;
-exports.watchServer = watchServer;
-exports.devServer = devServer;
