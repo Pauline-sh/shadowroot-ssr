@@ -2,6 +2,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import {nodeResolve} from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
+import copy from 'rollup-plugin-copy'
 import {visualizer} from 'rollup-plugin-visualizer';
 import {boolean} from 'boolean';
 
@@ -20,5 +21,10 @@ export default {
     commonjs(),
     json(),
     VISUALIZE && visualizer(),
+    copy({
+      targets: [
+        { src: 'src/client/index.html', dest: 'src/client/dist' },
+      ]
+    })
   ]
 };

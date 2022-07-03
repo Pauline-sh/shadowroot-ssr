@@ -14,5 +14,5 @@ app.use(helmet.contentSecurityPolicy({
     'style-src': ["'self'"],
   },
 }));
-app.use(express.static(path.join('src', 'client')));
+app.use(express.static(path.join('src', 'client', 'dist')));
 app.use(router);
