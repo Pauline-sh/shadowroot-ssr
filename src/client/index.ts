@@ -1,1 +1,1 @@
-console.log('хелоуси');
+import './components/stateful_component';

@@ -7,8 +7,9 @@
     "outDir": "dist"
   },
   "include": [
-    "./**/*",
-    "../common/**/*",
-    "../types/**/*",
+    ".",
+    "../common",
+    "../types",
+    "../store",
   ]
 }

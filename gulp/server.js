@@ -15,13 +15,16 @@ export function buildServer(cb) {
 }
 
 export function watchServer() {
-  watch(['src/server/**/*.ts'], buildServer);
+  watch([
+    'src/server/**/*.ts',
+    'src/common/**/*.ts',
+  ], buildServer);
 }
 
 export function restartOnChangeServer() {
   nodemon({
     watch: ['src/server/dist'],
-    script: 'src/server/dist/index.js'
+    script: 'src/server/dist/server/index.js'
   });
 }
 
