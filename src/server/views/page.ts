@@ -1,5 +1,5 @@
-import { html } from '../../../common/html.js';
-import { State } from '../../../store/types/state.js';
+import { html } from '../../common/html.js';
+import { State } from '../../store/types/state.js';
 
 export function renderPage(
   state: State,
@@ -23,7 +23,7 @@ export function renderPage(
     <script>
       window.__PRELOADED_STATE__ = ${JSON.stringify(state).replace(/</g, '\\u003c')}
     </script>
-    <script src="static/bundle.js"></script>
+    <script type="module" src="static/bundle.js"></script>
   </body>
   
   </html>
